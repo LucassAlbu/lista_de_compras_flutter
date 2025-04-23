@@ -6,6 +6,7 @@ class AppColors {
   static Color get grey => const Color(0xfff2f2f2);
   static Color get greyText => const Color(0xff707070);
   static Color get greenCard => const Color(0xff57947F);
+  static Color get blueCard => const Color(0xff069db0);
   static Color get orange => const Color(0xFFEC793C);
   static Color get positive => const Color(0xff0A8A0A);
   static Color get danger => const Color(0xffb80d23);

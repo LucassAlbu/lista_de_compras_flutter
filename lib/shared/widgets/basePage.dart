@@ -42,12 +42,12 @@ class BasePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.greenCard,
+      backgroundColor: AppColors.blueCard,
       appBar: AppBar(
         leading: leading ??
             IconButton(
               icon: Icon(
-                Icons.arrow_back_ios_new_rounded,
+                Icons.arrow_back_outlined,
                 color: Colors.white,
                 size: 24.w,
               ),
@@ -58,7 +58,7 @@ class BasePage extends StatelessWidget {
             ),
         automaticallyImplyLeading: false,
         centerTitle: true,
-        backgroundColor: AppColors.greenCard,
+        backgroundColor: AppColors.blueCard,
         title: Text(
           title,
           style: TextStyle(color: Colors.white, fontSize: 14.w),
@@ -70,7 +70,7 @@ class BasePage extends StatelessWidget {
               key: filterIconKey,
               onPressed: onFilterPressed,
               icon: Icon(
-                Icons.filter_alt_rounded,
+                Icons.filter_alt_outlined,
                 color: Colors.white,
                 size: 24.w,
               ),
@@ -92,7 +92,7 @@ class BasePage extends StatelessWidget {
             child: IconButton(
               onPressed: onAddIconPressed,
               icon: Icon(
-                Icons.add_circle_outline_rounded,
+                Icons.post_add_sharp,
                 color: Colors.white,
                 size: 24.w,
               ),
@@ -101,7 +101,7 @@ class BasePage extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(12.w, 12.h, 12.w, 24.h),
+        padding: EdgeInsets.fromLTRB(8.w, 8.h, 8.w, 24.h),
         child: Column(
           children: [
             Expanded(

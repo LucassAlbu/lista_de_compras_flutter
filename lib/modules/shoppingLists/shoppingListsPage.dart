@@ -14,7 +14,7 @@ class ShoppingListsPage extends GetView<ShoppingListsController> {
     return BasePage(
       title: 'Listas de Compras',
       showSearchBar: true,
-      showFilterIcon: false,
+      showFilterIcon: true,
       showAddIcon: true,
       onSearchChanged: (search) {
 
