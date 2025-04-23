@@ -1,27 +1,24 @@
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:lista_de_compras/modules/shoppingLists/shoppingListsController.dart';
 
-import '../../routes/app_routes.dart';
-import '../../shared/app_colors.dart';
-import '../../shared/widgets/basePage.dart';
+import '../../../shared/app_colors.dart';
+import '../../../shared/widgets/basePage.dart';
 
-class ShoppingListsPage extends GetView<ShoppingListsController> {
-  const ShoppingListsPage({super.key});
+class NewShoppingListsPage extends GetView<ShoppingListsController> {
+  const NewShoppingListsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BasePage(
-      title: 'Listas de Compras',
+      title: 'Nova lista de Compras',
       showSearchBar: true,
       showFilterIcon: false,
       showAddIcon: true,
       onSearchChanged: (search) {
 
       },
-      onAddIconPressed: () {
-        Get.toNamed(AppRoutes.newShoppingLists);
-      },
+      onAddIconPressed: () {},
       bodyContent: Container(
         decoration: BoxDecoration(
           color: AppColors.white,
@@ -29,7 +26,8 @@ class ShoppingListsPage extends GetView<ShoppingListsController> {
         ),
         child: const Column(
           children: [
-            Text("um texto de exmplo")
+            Text("um texto de exmplo"),
+
           ],
         ),
       ),
