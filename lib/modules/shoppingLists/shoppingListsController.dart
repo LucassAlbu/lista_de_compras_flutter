@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:lista_de_compras/modules/shoppingLists/shoppingListModel.dart';
+import 'package:lista_de_compras/routes/app_routes.dart';
 
 class ShoppingListsController extends GetxController {
   final nameShoppingListController = TextEditingController();
@@ -11,6 +12,13 @@ class ShoppingListsController extends GetxController {
   void onInit() {
     super.onInit();
     _loadMockedLists();
+  }
+
+  void onSaveNewShoppingListModal() {
+    Get.toNamed(
+      AppRoutes.newShoppingLists,
+      arguments: {'listName': nameShoppingListController.text},
+    );
   }
 
   void _loadMockedLists() {

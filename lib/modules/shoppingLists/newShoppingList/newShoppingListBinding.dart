@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import 'newShoppingListController.dart';
 
 class NewShoppingListsBinding implements Bindings {

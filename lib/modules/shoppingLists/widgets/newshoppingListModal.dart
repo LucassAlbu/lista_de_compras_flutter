@@ -50,8 +50,9 @@ void showNewShoppingListModal({
                   height: 42.h,
                   onPressed: () {
                     if (!key.currentState!.validate()) return;
-                    onSave();
                     Get.back();
+                    onSave();
+                    nameShoppingListController.clear();
                   },
                   color: AppColors.blueCard,
                   borderColor: AppColors.blueCard,
@@ -62,7 +63,8 @@ void showNewShoppingListModal({
                 ButtonDefault(
                   width: Get.width,
                   height: 42.h,
-                  onPressed: () => Get.back(),
+                  onPressed: () { Get.back();
+                  nameShoppingListController.clear(); },
                   color: Colors.red,
                   borderColor: Colors.red,
                   fontColor: Colors.white,

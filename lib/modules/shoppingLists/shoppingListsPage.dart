@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:lista_de_compras/modules/shoppingLists/shoppingListsController.dart';
+import 'package:lista_de_compras/modules/shoppingLists/widgets/newshoppingListModal.dart';
 import 'package:lista_de_compras/modules/shoppingLists/widgets/shoppingListsCard.dart';
 
-import '../../routes/app_routes.dart';
 import '../../shared/widgets/basePage.dart';
 
 class ShoppingListsPage extends GetView<ShoppingListsController> {
@@ -18,13 +18,13 @@ class ShoppingListsPage extends GetView<ShoppingListsController> {
       showAddIcon: true,
       onSearchChanged: (search) {},
       onAddIconPressed: () {
-        // showNewShoppingListModal(
-        //   nameShoppingListController: controller.nameShoppingListController,
-        //   onSave: () {
-        //     controller.onSaveNewShoppingListModal();
-        //   },
-        // );
-        Get.toNamed(AppRoutes.newShoppingLists);
+        showNewShoppingListModal(
+          nameShoppingListController: controller.nameShoppingListController,
+          onSave: () {
+            controller.onSaveNewShoppingListModal();
+          },
+        );
+        //Get.toNamed(AppRoutes.newShoppingLists);
       },
       bodyContent: Obx(
         () => ListView.builder(
