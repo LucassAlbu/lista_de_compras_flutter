@@ -9,7 +9,7 @@ import '../../../shared/widgets/custom_input_field.dart';
 
 void showNewShoppingListModal({
   required TextEditingController nameShoppingListController,
- // required VoidCallback onSave,
+  required VoidCallback onSave,
 }) {
   final GlobalKey<FormState> key = GlobalKey<FormState>();
   Get.dialog(
@@ -50,7 +50,7 @@ void showNewShoppingListModal({
                   height: 42.h,
                   onPressed: () {
                     if (!key.currentState!.validate()) return;
-                    //onSave();
+                    onSave();
                     Get.back();
                   },
                   color: AppColors.blueCard,

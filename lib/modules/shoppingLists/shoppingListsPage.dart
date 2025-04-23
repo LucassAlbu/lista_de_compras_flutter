@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:lista_de_compras/modules/shoppingLists/shoppingListsController.dart';
-import 'package:lista_de_compras/modules/shoppingLists/widgets/newshoppingListModal.dart';
+import 'package:lista_de_compras/modules/shoppingLists/widgets/shoppingListsCard.dart';
 
-import '../../shared/app_colors.dart';
+import '../../routes/app_routes.dart';
 import '../../shared/widgets/basePage.dart';
 
 class ShoppingListsPage extends GetView<ShoppingListsController> {
@@ -18,18 +18,26 @@ class ShoppingListsPage extends GetView<ShoppingListsController> {
       showAddIcon: true,
       onSearchChanged: (search) {},
       onAddIconPressed: () {
-        showNewShoppingListModal(
-          nameShoppingListController: controller.nameShoppingListController,
-        );
-        // Get.toNamed(AppRoutes.newShoppingLists);
+        // showNewShoppingListModal(
+        //   nameShoppingListController: controller.nameShoppingListController,
+        //   onSave: () {
+        //     controller.onSaveNewShoppingListModal();
+        //   },
+        // );
+        Get.toNamed(AppRoutes.newShoppingLists);
       },
-      bodyContent: Container(
-        decoration: BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.circular(30),
-        ),
-        child: const Column(
-          children: [Text("um texto de exmplo")],
+      bodyContent: Obx(
+        () => ListView.builder(
+          itemCount: controller.shoppingLists.length,
+          itemBuilder: (_, index) {
+            final list = controller.shoppingLists[index];
+            return ForumAnswerCard(
+              title: list.title,
+              replies: list.purchasedItems,
+              views: list.items,
+              createdAt: list.createdAt,
+            );
+          },
         ),
       ),
     );

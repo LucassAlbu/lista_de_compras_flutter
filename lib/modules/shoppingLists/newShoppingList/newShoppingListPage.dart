@@ -1,23 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
-import 'package:lista_de_compras/modules/shoppingLists/shoppingListsController.dart';
 
 import '../../../shared/app_colors.dart';
 import '../../../shared/widgets/basePage.dart';
+import 'newShoppingListController.dart';
 
-class NewShoppingListsPage extends GetView<ShoppingListsController> {
+class NewShoppingListsPage extends GetView<NewShoppingListsController> {
   const NewShoppingListsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BasePage(
       title: 'Nova lista de Compras',
-      showSearchBar: true,
+      showSearchBar: false,
       showFilterIcon: false,
-      showAddIcon: true,
-      onSearchChanged: (search) {
-
-      },
+      showAddIcon: false,
+      onSearchChanged: (search) {},
       onAddIconPressed: () {},
       bodyContent: Container(
         decoration: BoxDecoration(
@@ -26,8 +24,11 @@ class NewShoppingListsPage extends GetView<ShoppingListsController> {
         ),
         child: const Column(
           children: [
-            Text("um texto de exmplo"),
-
+            // CustomInputField(
+            //   title: 'Lista de compras',
+            //   hint: "Informe o nome da lista ",
+            //   controller: controller.nameShoppingListController,
+            // ),
           ],
         ),
       ),
