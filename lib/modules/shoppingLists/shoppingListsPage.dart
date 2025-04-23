@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:lista_de_compras/modules/shoppingLists/shoppingListsController.dart';
+import 'package:lista_de_compras/modules/shoppingLists/widgets/newshoppingListModal.dart';
 
-import '../../routes/app_routes.dart';
 import '../../shared/app_colors.dart';
 import '../../shared/widgets/basePage.dart';
 
@@ -14,13 +14,14 @@ class ShoppingListsPage extends GetView<ShoppingListsController> {
     return BasePage(
       title: 'Listas de Compras',
       showSearchBar: true,
-      showFilterIcon: true,
+      showFilterIcon: false,
       showAddIcon: true,
-      onSearchChanged: (search) {
-
-      },
+      onSearchChanged: (search) {},
       onAddIconPressed: () {
-        Get.toNamed(AppRoutes.newShoppingLists);
+        showNewShoppingListModal(
+          nameShoppingListController: controller.nameShoppingListController,
+        );
+        // Get.toNamed(AppRoutes.newShoppingLists);
       },
       bodyContent: Container(
         decoration: BoxDecoration(
@@ -28,9 +29,7 @@ class ShoppingListsPage extends GetView<ShoppingListsController> {
           borderRadius: BorderRadius.circular(30),
         ),
         child: const Column(
-          children: [
-            Text("um texto de exmplo")
-          ],
+          children: [Text("um texto de exmplo")],
         ),
       ),
     );
