@@ -5,7 +5,7 @@ import 'package:lista_de_compras/routes/app_routes.dart';
 
 import '../../models/shoppingListModel.dart';
 
-class ShoppingListsController extends GetxController {
+class HomeListsController extends GetxController {
   final nameShoppingListController = TextEditingController();
   final RxList<ShoppingListModel> shoppingLists = <ShoppingListModel>[].obs;
 

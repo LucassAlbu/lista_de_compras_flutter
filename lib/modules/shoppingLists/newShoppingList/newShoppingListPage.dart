@@ -23,35 +23,38 @@ class NewShoppingListsPage extends GetView<NewShoppingListsController> {
           Padding(
             padding: const EdgeInsets.only(bottom: 80),
             child: Obx(
-              () => SingleChildScrollView(
-                padding:
-                    const EdgeInsets.symmetric( vertical: 16),
-                child: Column(
-                  children: List.generate(
-                    controller.itemControllers.length,
-                    (index) => Padding(
-                      padding: const EdgeInsets.only(bottom: 12.0),
-                      child: CustomInputField(
-                        controller: controller.itemControllers[index],
-                        textInputAction: TextInputAction.done,
-                        onFieldSubmitted: (_) {
-                          final isLast =
-                              index == controller.itemControllers.length - 1;
-                          final isNotEmpty = controller
-                              .itemControllers[index].text
-                              .trim()
-                              .isNotEmpty;
-                          if (isLast && isNotEmpty) {
-                            controller.addItemField();
-                          }
-                        },
-                        title: 'Item ${index + 1}',
-                        hint: 'Produto...',
+                  () =>
+                  SingleChildScrollView(
+                    padding:
+                    const EdgeInsets.symmetric(vertical: 16),
+                    child: Column(
+                      children: List.generate(
+                        controller.itemControllers.length,
+                            (index) =>
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 12.0),
+                              child: CustomInputField(
+                                controller: controller.itemControllers[index],
+                                textInputAction: TextInputAction.done,
+                                onFieldSubmitted: (_) {
+                                  final isLast =
+                                      index ==
+                                          controller.itemControllers.length - 1;
+                                  final isNotEmpty = controller
+                                      .itemControllers[index].text
+                                      .trim()
+                                      .isNotEmpty;
+                                  if (isLast && isNotEmpty) {
+                                    controller.addItemField();
+                                  }
+                                },
+                                title: 'Item ${index + 1}',
+                                hint: 'Produto...',
+                              ),
+                            ),
                       ),
                     ),
                   ),
-                ),
-              ),
             ),
           ),
           Positioned(
