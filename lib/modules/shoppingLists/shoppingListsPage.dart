@@ -4,6 +4,7 @@ import 'package:lista_de_compras/modules/shoppingLists/shoppingListsController.d
 import 'package:lista_de_compras/modules/shoppingLists/widgets/newshoppingListModal.dart';
 import 'package:lista_de_compras/modules/shoppingLists/widgets/shoppingListsCard.dart';
 
+import '../../routes/app_routes.dart';
 import '../../shared/widgets/basePage.dart';
 
 class ShoppingListsPage extends GetView<ShoppingListsController> {
@@ -20,22 +21,30 @@ class ShoppingListsPage extends GetView<ShoppingListsController> {
       onAddIconPressed: () {
         showNewShoppingListModal(
           nameShoppingListController: controller.nameShoppingListController,
-          onSave: () {
-            controller.onSaveNewShoppingListModal();
+          onSave: () async {
+            final listName = controller.nameShoppingListController.text.trim();
+            if (listName.isNotEmpty) {
+              final result = await Get.toNamed(
+                AppRoutes.newShoppingLists,
+                arguments: {'listName': listName},
+              );
+              if (result == true) {
+                controller.refreshShoppingLists();
+              }
+            }
           },
         );
-        //Get.toNamed(AppRoutes.newShoppingLists);
       },
       bodyContent: Obx(
         () => ListView.builder(
-          itemCount: controller.shoppingLists.length,
-          itemBuilder: (_, index) {
-            final list = controller.shoppingLists[index];
-            return ForumAnswerCard(
-              title: list.title,
-              itens: list.items,
-            );
-          },
+            itemCount: controller.shoppingLists.length,
+            itemBuilder: (_, index) {
+              final list = controller.shoppingLists[index];
+              return ForumAnswerCard(
+                title: list.title,
+                itens: list.items.length,
+              );
+            }
         ),
       ),
     );

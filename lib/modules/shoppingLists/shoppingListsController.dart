@@ -1,19 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:lista_de_compras/routes/app_routes.dart';
 
-import '../../models/mockModel.dart';
+import '../../models/shoppingListModel.dart';
 
 class ShoppingListsController extends GetxController {
   final nameShoppingListController = TextEditingController();
+  final RxList<ShoppingListModel> shoppingLists = <ShoppingListModel>[].obs;
 
-  final RxList<ShoppingListMockModel> shoppingLists =
-      <ShoppingListMockModel>[].obs;
+  late Box<ShoppingListModel> shoppingBox;
 
   @override
   void onInit() {
     super.onInit();
-    _loadMockedLists();
+    _openBoxAndLoadLists();
+  }
+
+  Future<void> _openBoxAndLoadLists() async {
+    shoppingBox = await Hive.openBox<ShoppingListModel>('shoppingLists');
+    refreshShoppingLists();
+  }
+
+  void refreshShoppingLists() {
+    final allLists = shoppingBox.values.toList();
+    shoppingLists.assignAll(allLists);
   }
 
   void onSaveNewShoppingListModal() {
@@ -21,22 +32,5 @@ class ShoppingListsController extends GetxController {
       AppRoutes.newShoppingLists,
       arguments: {'listName': nameShoppingListController.text},
     );
-  }
-
-  void _loadMockedLists() {
-    shoppingLists.assignAll([
-      ShoppingListMockModel(
-        title: 'Supermercado da Semana',
-        items: 10,
-      ),
-      ShoppingListMockModel(
-        title: 'Churrasco Sábado',
-        items: 8,
-      ),
-      ShoppingListMockModel(
-        title: 'Produtos de Limpeza',
-        items: 6,
-      ),
-    ]);
   }
 }
