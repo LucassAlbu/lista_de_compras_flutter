@@ -5,16 +5,12 @@ import '../../../shared/app_colors.dart';
 
 class ForumAnswerCard extends StatelessWidget {
   final String title;
-  final int replies;
-  final int views;
-  final DateTime createdAt;
+  final int itens;
 
   const ForumAnswerCard({
     super.key,
     required this.title,
-    required this.replies,
-    required this.views,
-    required this.createdAt,
+    required this.itens,
   });
 
   @override

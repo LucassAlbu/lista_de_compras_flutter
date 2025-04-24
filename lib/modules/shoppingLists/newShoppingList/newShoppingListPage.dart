@@ -25,7 +25,7 @@ class NewShoppingListsPage extends GetView<NewShoppingListsController> {
             child: Obx(
               () => SingleChildScrollView(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                    const EdgeInsets.symmetric( vertical: 16),
                 child: Column(
                   children: List.generate(
                     controller.itemControllers.length,
@@ -61,7 +61,9 @@ class NewShoppingListsPage extends GetView<NewShoppingListsController> {
             child: ButtonDefault(
               width: Get.width,
               height: 42.h,
-              onPressed: () {},
+              onPressed: () {
+                controller.saveShoppingList();
+              },
               color: AppColors.blueCard,
               borderColor: AppColors.blueCard,
               fontColor: Colors.white,

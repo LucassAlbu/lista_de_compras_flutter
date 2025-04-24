@@ -33,9 +33,7 @@ class ShoppingListsPage extends GetView<ShoppingListsController> {
             final list = controller.shoppingLists[index];
             return ForumAnswerCard(
               title: list.title,
-              replies: list.purchasedItems,
-              views: list.items,
-              createdAt: list.createdAt,
+              itens: list.items,
             );
           },
         ),
