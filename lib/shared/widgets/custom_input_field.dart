@@ -13,6 +13,8 @@ class CustomInputField extends StatelessWidget {
   final int? maxLength;
   final List<TextInputFormatter>? inputFormatters;
   final bool showCounterText;
+  final TextInputAction? textInputAction;
+  final void Function(String)? onFieldSubmitted;
 
   const CustomInputField({
     super.key,
@@ -24,6 +26,8 @@ class CustomInputField extends StatelessWidget {
     this.maxLength,
     this.inputFormatters,
     this.showCounterText = false,
+    this.textInputAction,
+    this.onFieldSubmitted,
   });
 
   @override
@@ -46,6 +50,8 @@ class CustomInputField extends StatelessWidget {
           maxLength: maxLength,
           validator: validators,
           inputFormatters: inputFormatters,
+          textInputAction: textInputAction,
+          onFieldSubmitted: onFieldSubmitted,
           decoration: InputDecoration(
             filled: true,
             fillColor: AppColors.greyCardBg,
