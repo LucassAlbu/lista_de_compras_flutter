@@ -20,6 +20,7 @@ class ShoppingListsPage extends GetView<ShoppingListsController> {
       showSearchBar: true,
       showFilterIcon: false,
       showAddIcon: true,
+      showBackButton: false,
       onSearchChanged: (search) {},
       onAddIconPressed: () {
         showNewShoppingListModal(
