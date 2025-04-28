@@ -61,7 +61,9 @@ class NewShoppingListsPage extends GetView<NewShoppingListsController> {
             child: ButtonDefault(
               width: Get.width,
               height: 42.h,
-              onPressed: () {},
+              onPressed: () {
+                Get.back();
+              },
               color: AppColors.blueCard,
               borderColor: AppColors.blueCard,
               fontColor: Colors.white,
