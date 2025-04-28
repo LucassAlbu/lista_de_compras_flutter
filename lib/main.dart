@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:lista_de_compras/routes/app_pages.dart';
 
-void main() {
+import 'models/shoppingListModel.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(ShoppingListModelAdapter());
+  await Hive.openBox<ShoppingListModel>('shopping_lists');
   runApp(const MyApp());
 }
 

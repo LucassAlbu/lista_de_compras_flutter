@@ -19,6 +19,7 @@ class BasePage extends StatelessWidget {
   final String? searchHint;
   final Widget? floatingActionButton;
   final Widget? leading;
+  final bool showBackButton;
 
   const BasePage({
     super.key,
@@ -37,6 +38,7 @@ class BasePage extends StatelessWidget {
     this.backFunction,
     this.floatingActionButton,
     this.leading,
+    this.showBackButton = true,
   });
 
   @override
@@ -44,18 +46,17 @@ class BasePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.blueCard,
       appBar: AppBar(
-        leading: leading ??
+        leading: showBackButton
+            ? (leading ??
             IconButton(
               icon: Icon(
                 Icons.arrow_back_outlined,
                 color: Colors.white,
                 size: 24.w,
               ),
-              onPressed: backFunction ??
-                  () {
-                    Get.back();
-                  },
-            ),
+              onPressed: backFunction ?? () => Get.back(),
+            ))
+            : const SizedBox(),
         automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: AppColors.blueCard,
