@@ -18,7 +18,7 @@ class ListItemPage extends GetView<ListItemController> {
       onAddIconPressed: () {
       },
       bodyContent:
-        Text('Itens da lista de Compras'),
+        Text('Itens da lista de Compras  '),
     );
   }
 }
